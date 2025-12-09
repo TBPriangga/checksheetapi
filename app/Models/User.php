@@ -2,48 +2,38 @@
 
 namespace App\Models;
 
-use App\Models\Position;
-use App\Models\Department;
-use App\Models\DetailDepartement;
-use Laravel\Sanctum\HasApiTokens;
-use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles, SoftDeletes;
-
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'users';
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $fillable = [
         'name',
         'email',
-        'username',
+        'phone',
         'password',
-        'dept_id',
-        'detail_dept_id',
-        'position_id',
-        'npk',
+        'role',
+        'is_active',
+        'profile_image',
+        'bio',
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     * The attributes that should be hidden for serialization.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $hidden = [
         'password',
@@ -51,44 +41,61 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
+     * The attributes that should be cast.
      *
-     * @var array
+     * @var array<string, string>
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_active' => 'boolean',
+        'last_login_at' => 'datetime',
     ];
 
     /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
+     * Accessor: Get user's full name
      */
-    protected $dates = ['deleted_at'];
+    public function getFullNameAttribute()
+    {
+        return $this->name;
+    }
 
     /**
-     * Always encrypt password when it is updated.
-     *
-     * @param $value
-     * @return string
+     * Check if user is admin
+     */
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    /**
+     * Check if user is supervisor
+     */
+    public function isSupervisor()
+    {
+        return $this->role === 'supervisor';
+    }
+
+    /**
+     * Check if user is regular user
+     */
+    public function isUser()
+    {
+        return $this->role === 'user';
+    }
+
+    /**
+     * Mutator: Hash password when set
      */
     public function setPasswordAttribute($value)
     {
-        $this->attributes['password'] = bcrypt($value);
-    }
-    
-    public function department()
-    {
-        return $this->hasOne(Department::class, 'id', 'dept_id');
+        $this->attributes['password'] = Hash::make($value);
     }
 
-    public function position()
+    /**
+     * Update last login timestamp
+     */
+    public function updateLastLogin()
     {
-        return $this->hasOne(Position::class, 'id', 'position_id');
-    }
-
-    public function detail_department()
-    {
-        return $this->hasOne(DetailDepartement::class, 'id', 'detail_dept_id');
+        $this->update(['last_login_at' => now()]);
     }
 }
