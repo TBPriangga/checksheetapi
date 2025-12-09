@@ -1,0 +1,305 @@
+@extends('layouts.app-master')
+
+@push('stylesheets')
+<style>
+    .form-container { margin-bottom: 10px; }
+    .form-group label { font-weight: bold; margin-bottom: 5px; }
+    .form-control { border: 1px solid #ced4da; border-radius: 5px; }
+    .form-control:focus { border-color: #5c8bb5; box-shadow: 0 0 4px rgba(0, 86, 179, 0.5); }
+    .upload-box { border: 2px dashed #007bff; border-radius: 5px; padding: 20px; text-align: center; cursor: pointer; margin-bottom: 15px; position: relative; }
+    .upload-box i { font-size: 30px; color: #007bff; }
+    .upload-box p { margin: 5px 0; font-size: 14px; }
+    .upload-box small { font-size: 12px; color: #6c757d; }
+    .upload-box img { max-width: 100%; max-height: 150px; margin-top: 10px; display: none; border-radius: 5px; }
+    .upload-box.has-image i, .upload-box.has-image p, .upload-box.has-image small { display: none; }
+    .btn-submit { background-color: #fd7e14; border: none; color: white; padding: 10px 20px; font-size: 16px; border-radius: 5px; float: right; }
+    .footer-ss { text-align: left; color: #6c757d; font-size: 14px; margin-top: 20px; }
+    .alert { margin-bottom: 20px; }
+    .ui-autocomplete {
+        max-height: 200px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        list-style-type: none; /* Menghapus bullet */
+        background-color: #ffffff; /* Latar belakang solid putih */
+        border: 1px solid #ced4da; /* Border sesuai form-control */
+        border-radius: 5px; /* Sudut melengkung seperti form */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+        width: auto; /* Sesuaikan lebar dengan input */
+        min-width: 100%; /* Minimal lebar sesuai input */
+        z-index: 1000; /* Pastikan dropdown di atas elemen lain */
+    }
+    .ui-autocomplete li {
+        padding: 5px 10px; /* Padding untuk setiap item */
+        font-size: 14px; /* Ukuran teks sesuai form */
+    }
+    .cost-saving-group {
+        display: flex;
+        gap: 10px;
+    }
+    .cost-saving-group .form-control {
+        flex: 1;
+    }
+    #cost_saving_currency {
+        width: 80px; /* Lebar tetap untuk kotak mata uang */
+        flex: none; /* Tidak fleksibel, tetap ukuran yang ditentukan */
+    }
+</style>
+@endpush
+
+@push('scripts')
+<script>
+    $(document).ready(function () {
+        // Autocomplete untuk Departemen
+        $('#departemen').autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "{{ route('ss.departments') }}",
+                    dataType: "json",
+                    data: {
+                        term: request.term
+                    },
+                    success: function (data) {
+                        const filteredData = data.filter(item =>
+                            item.toLowerCase().startsWith(request.term.toLowerCase())
+                        );
+                        response(filteredData);
+                    }
+                });
+            },
+            minLength: 1,
+            select: function (event, ui) {
+                $('#departemen').val(ui.item.value);
+                $('#section').val('');
+                $('#section').autocomplete('option', 'source', function (request, response) {
+                    $.ajax({
+                        url: "{{ route('ss.detail-departments') }}",
+                        dataType: "json",
+                        data: {
+                            term: request.term,
+                            department: ui.item.value
+                        },
+                        success: function (data) {
+                            const filteredData = data.filter(item =>
+                                item.toLowerCase().startsWith(request.term.toLowerCase())
+                            );
+                            response(filteredData);
+                        }
+                    });
+                });
+            }
+        });
+
+        // Autocomplete untuk Section
+        $('#section').autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "{{ route('ss.detail-departments') }}",
+                    dataType: "json",
+                    data: {
+                        term: request.term,
+                        department: $('#departemen').val()
+                    },
+                    success: function (data) {
+                        const filteredData = data.filter(item =>
+                            item.toLowerCase().startsWith(request.term.toLowerCase())
+                        );
+                        response(filteredData);
+                    }
+                });
+            },
+            minLength: 1
+        });
+
+        // Format numerik untuk Cost Saving Amount
+        new Cleave('#cost_saving_amount', {
+            numeral: true,
+            numeralThousandsGroupStyle: 'thousand',
+            numeralDecimalScale: 0 // Ubah ke 0 untuk menghindari desimal otomatis
+        });
+
+        // Gabungkan mata uang dan jumlah sebelum submit, hapus koma
+        $('form').on('submit', function () {
+            const currency = $('#cost_saving_currency').val();
+            let amount = $('#cost_saving_amount').val().replace(/[^0-9]/g, ''); // Hapus semua karakter kecuali angka (tidak termasuk titik)
+            if (amount === '') amount = '0'; // Jika kosong, set ke 0
+            $('#cost_saving').val(currency + ' ' + amount);
+            $('#cost_saving_amount').val(amount); // Perbarui nilai asli tanpa format untuk validasi
+        });
+
+        // Pratinjau gambar
+        document.querySelectorAll('.upload-box').forEach(box => {
+            const input = box.querySelector('input[type="file"]');
+            const img = box.querySelector('img');
+
+            box.addEventListener('click', () => {
+                input.click();
+            });
+
+            input.addEventListener('change', () => {
+                const file = input.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        img.src = e.target.result;
+                        img.style.display = 'block';
+                        box.classList.add('has-image');
+                        box.querySelector('p').textContent = file.name;
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    img.style.display = 'none';
+                    box.classList.remove('has-image');
+                    box.querySelector('p').textContent = input.id === 'before_image' ? 'Upload gambar kondisi sebelum' : 'Upload gambar kondisi sesudah';
+                }
+            });
+        });
+    });
+</script>
+@endpush
+
+@section('content')
+<div class="form-container">
+    @include('ss.partials.header-form')
+
+    <!-- Pesan sukses atau error -->
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <!-- Area form-->
+    <form method="POST" action="{{ route('ss.submitadmin.store') }}" enctype="multipart/form-data">
+        @csrf
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="nama">Nama</label>
+                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama lengkap" value="{{ old('nama') }}">
+                    @error('nama')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+                <div class="form-group mb-3">
+                    <label for="departemen">Departemen:</label>
+                    <input type="text" class="form-control" id="departemen" name="departemen" placeholder="Masukkan departemen" value="{{ old('departemen') }}">
+                    @error('departemen')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+                <div class="form-group mb-3">
+                    <label for="kategori_ide">Kategori Ide</label>
+                    <select class="form-control" id="kategori_ide" name="kategori_ide">
+                        <option value="">Pilih Kategori Ide</option>
+                        <option value="5S" {{ old('kategori_ide') === '5S' ? 'selected' : '' }}>5S</option>
+                        <option value="Quality" {{ old('kategori_ide') === 'Quality' ? 'selected' : '' }}>Quality</option>
+                        <option value="Efisiensi" {{ old('kategori_ide') === 'Efisiensi' ? 'selected' : '' }}>Efisiensi</option>
+                        <option value="Lingkungan" {{ old('kategori_ide') === 'Lingkungan' ? 'selected' : '' }}>Lingkungan</option>
+                        <option value="Safety" {{ old('kategori_ide') === 'Safety' ? 'selected' : '' }}>Safety</option>
+                    </select>
+                    @error('kategori_ide')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="npk">NPK</label>
+                    <input type="text" class="form-control" id="npk" name="npk" placeholder="Masukkan NPK" value="{{ old('npk') }}">
+                    @error('npk')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+                <div class="form-group mb-3">
+                    <label for="section">Section:</label>
+                    <input type="text" class="form-control" id="section" name="section" placeholder="Masukkan section" value="{{ old('section') }}">
+                    @error('section')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+                <div class="form-group mb-3">
+                    <label for="cost_saving">Cost Saving</label>
+                    <div class="cost-saving-group">
+                        <select class="form-control" id="cost_saving_currency" name="cost_saving_currency">
+                            <option value="IDR" {{ old('cost_saving_currency') === 'IDR' ? 'selected' : '' }}>IDR</option>
+                            <option value="USD" {{ old('cost_saving_currency') === 'USD' ? 'selected' : '' }}>USD</option>
+                        </select>
+                        <input type="text" class="form-control" id="cost_saving_amount" name="cost_saving_amount" placeholder="Masukkan jumlah" value="{{ old('cost_saving_amount') }}">
+                    </div>
+                    @error('cost_saving_currency')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                    @error('cost_saving_amount')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="judul_ide">Judul Ide:</label>
+            <input type="text" class="form-control" id="judul_ide" name="judul_ide" placeholder="Masukkan judul ide" value="{{ old('judul_ide') }}">
+            @error('judul_ide')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
+        </div>
+        <div class="form-group mb-3">
+            <label for="before">Before:</label>
+            <textarea class="form-control" id="before" name="before" rows="3" placeholder="Jelaskan kondisi sebelum implementasi ide">{{ old('before') }}</textarea>
+            @error('before')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
+        </div>
+        <div class="form-group mb-3">
+            <label for="after">After:</label>
+            <textarea class="form-control" id="after" name="after" rows="3" placeholder="Jelaskan kondisi setelah implementasi ide">{{ old('after') }}</textarea>
+            @error('after')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
+        </div>
+
+        <!-- Area upload seperti gambar -->
+        <div class="row">
+            <div class="col-md-6">
+                <label>Kondisi Before:</label>
+                <div class="upload-box">
+                    <i class="fa fa-upload"></i>
+                    <p>Upload gambar kondisi sebelum</p>
+                    <small>JPG, PNG up to 10MB</small>
+                    <input type="file" id="before_image" name="before_image" accept="image/jpeg,image/png" style="display: none;">
+                    <img src="" alt="Preview" class="preview-image">
+                </div>
+                @error('before_image')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
+            <div class="col-md-6">
+                <label>Kondisi After:</label>
+                <div class="upload-box">
+                    <i class="fa fa-upload"></i>
+                    <p>Upload gambar kondisi sesudah</p>
+                    <small>JPG, PNG up to 10MB</small>
+                    <input type="file" id="after_image" name="after_image" accept="image/jpeg,image/png" style="display: none;">
+                    <img src="" alt="Preview" class="preview-image">
+                </div>
+                @error('after_image')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
+        </div>
+
+        <!-- Tombol Submit -->
+        <button type="submit" class="btn-submit">SUBMIT</button>
+    </form>
+
+    <div class="footer-ss">Komite Inovasi PT. Astra Juoku Indonesia</div>
+</div>
+@endsection
