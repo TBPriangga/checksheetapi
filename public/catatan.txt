@@ -1,0 +1,235 @@
+urgent email : email ketika terdapat temuan rank A kepada PIC area
+reminder deadline : ketika laporan temuan yang belum diperbaiki oleh PIC h-2 sebelum atau sesudah deadline atau due date
+
+verify Email : email yang di peruntukan untuk Dept.Head EHS ketika sebuah laporan temuan sudah di verifikasi EHS
+penanggulangan Email : email yang di peruntukan untuk Dept.Head PIC ketika sebuah PIC area sudah melakukan progress penanggulangan 100%
+approved Email departement Head EHS : email yang dibuat ketika Dept.Head EHS telah melakukan approval laporan
+approved Email departement Head PIC : email yang di peruntukan untuk EHS, ketika Dept.Head PIC telah melakukan approval laporan
+
+email penolakan laporan : email yang di peruntukan untuk PIC Area ketika sebuah laporan temuan di tolak
+
+reminder penilaian : email untuk pengingat kepada para auditor genba management untuk melakukan penilaian setelah h+3 melakukan genba management
+Genba Patrol : email untuk pengingat jadwal genba management
+
+
+koreksi :
+
+- lock untuk input temuan ehs (done)
+- satu laporan(sekali patrol) banyak temuan (done)
+
+- tolak laporan ada bug (fix)
+- pic penanggulangan input ditambahkan kamera (done)
+- temporary di hilangkan (done)
+- perbedaan warna proses (done)
+
+
+
+koreksi 03-06-2024
+
+update
+- minta verify bug (done)
+
+PIC melakukan update progress sebanyak 100%
+- PIC telah melakukan update perbaikan temuan, (done)
+
+- tombol approve dept head pic (done)
+
+- email samain persis dengan di WA (done)
+
+Alasan Penolakan - catatan perbaikan lanjutan (done)
+
+
+koreksi 03-06-2024
+
+tombol hapus dan simpan pada edit berantakan(done)
+
+logo tang pada edit di buat menjadi lebih jelas (done)
+
+export laporan ketika kosong dihilangkan (done)
+
+temuan(1), bukti gambar(2), kategori(3), rank(4), due date(5) (done)
+
+camera gagal di hp (done)
+
+choose file or take picture (done)
+
+email loading email (done)
+
+urgent email temuan EHS Rank A (header) (done)
+
+Detail laporan, detail temuan (done)
+
+hover balik (done)
+
+urgent rank A, dept head PIC dan PIC (done)
+
+minta approval muncul ketika salah satu laporan sudah di verifikasi atau approve (done)
+
+notifikasi pada area PIC mana (done)
+
+Other Pages icon untuk ehs patrol (done gantinya icon doccument dan dashboard icon line chart)
+
+PIC tidak perlu ada semua laporan (done)
+
+detail : (hilangin tanggal pembuatan laporan)
+tanggal patrol
+area 
+PIC
+temuan
+foto
+kategori
+rank
+due date
+progress
+tanggal penanggulangan
+tanggal verifikasi
+------
+Dept Head PIC diatas dept head EHS
+
+status laporan di hide
+(done update perbaikan)
+
+update perbaikan di taruh diatas(-)
+
+---------------------------------------------------------------------
+1 PIC 2 area (done)
+format tanggal dd/mm/yy (done)
+
+koreksi tanggal 14
+
+- kembali dengan inputan lama (done)
+- rank A email masuk ke PIC, dept head pic, dept head EHS, EHS (done)
+- email di click (done)
+- merah pada catatan perbaikan lanjutan lebih tebal (done)
+- dashboard bisa menghilangkan area yang tidak ada temuan (done)
+- genba hilangkan (done)
+
+
+
+koreksi tanggal 15
+- tolak otomatis ke approve (tidak ada)
+- kuning progress (done)
+- kategori dan rank ditukar (done)
+- tolak temuan dikasih temuan (done)
+- login memakai username (done)
+- mashing button (done)
+
+
+koreksi tanggal 18
+- menambahkan summary pada laporan ehs patrol (done)
+- priority column (done)
+
+------------------------------------------------------
+
+Koreksi tanggal 19
+- table harus compact
+- role harus 2 (tinggal ui)
+
+------------------------------------------------------
+
+koreksi tanggal 20 
+
+counting pada pak pandu error (done)
+double notifikasi email (done)
+
+------------------------------------------------------------
+koreksi tanggal 21
+
+dashboard
+penamaan export : laporan ehs patrol - area - tanggal (done)
+------------------------------------------------------------
+
+EHS : edit delete - progress < 10 tolak verifikasi
+Dept Head EHS : Edit Delete tolak Approve
+Dept Head PIC : update perbaikan tolak approve
+PIC : update perbaikan
+
+type= null
+tipe tabel = laporan patrol
+tipe_tabel" => "semua"
+
+
+
+
+
+Dept Head
+
+dewi kartika : dewi.kartika@astra-juoku.com
+Agus Triwibowo : agus.triwibowo@astra-juoku.com
+Siswanto : siswanto@astra-juoku.com
+Pandu Azaria Ginzel : pandu.ginzel@astra-juoku.com
+
+-----------------------------------------------------
+
+PIC
+
+Imam Fazri Marimbun : imam.marimbun@astra-juoku.com
+Dicky Kusworo S : dicky.kusworo@astra-juoku.com
+Jakaria : jakaria@astra-juoku.com
+Maya Lestari : maya.lestari@astra-juoku.com
+Dwi Cahyadi : dwi.cahyadi@astra-juoku.com
+Teguh Nur Tolib : teguh.tolib@astra-juoku.com
+Riky Sutriadi : riky.putra@astra-juoku.com
+Zuraida Rochman : zuraida.rochman@astra-juoku.com
+Iwan Muhdi : wan.muhdi@astra-juoku.com
+
+Susilo Hendro Nugroho : susilo.nugroho@astra-juoku.com
+
+---------------------------------------------------------
+
+EHS
+
+adela ainunnisa : adela.ainunnisa@astra-juoku.com
+
+hanang setyawan : hanang.setyawan@astra-juoku.com
+---------------------------------------------------------
+
+MAIL_MAILER=smtp
+MAIL_HOST=astra-juoku.com
+MAIL_PORT=25
+MAIL_USERNAME=notification@astra-juoku.com
+MAIL_PASSWORD=Morning123!
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="notification@astra-juoku.com"
+MAIL_FROM_NAME="AJI INTERNAL PORTAL"
+------------------------------------------------------------
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=vmsxev@gmail.com
+MAIL_PASSWORD=nqulocmrfmgkgqiz
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="vmsxev@gmail.com"
+MAIL_FROM_NAME="AJI INTERNAL PORTAL"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+kekurangan Genba/website :
+- export penilaian genba belum ada 
+- queuing email 
+- notifikasi genba countingnya kurang tepat 
+- notifikasi email genba belum 
+- data dihapus untuk tanggal pembuatan laporan > 6 bulan
+- bikin dokumentasi
+  - erd(done)
+  - flow chart (done)
+  - use case(done)
+  - penjelasan controller dan function

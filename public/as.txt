@@ -1,0 +1,52 @@
+genba :
+
+- team management : - dashboard team (done) (controller done) : - create team (done) (controller done)
+			  - detail team (Anggota team, list Genba) (done) (controller done) : - edit team (done) (controller done)
+			  - detail Genba (list temuan, hasil penilaian) (done) (controller done) : - detail temuan (done)
+											    	   - detail penilaian
+
+- Laporan Temuan (list temuan) (done) (controller done) : - detail temuan (ID laporan) (done)
+
+- schedule genba (done) (controller done) : - detail Genba (done) (controller done) : - buat temuan (done) (controller done)
+			  		      	 - buat penilaian (done)
+
+			 - Buat Schedule (done) (controller done)
+			 - edit schedule (done) (controller done)
+			 - Hapus schedule (done) (controller done)
+
+genba :    - id
+	     - area_id
+	     - tanggal_patrol
+	     - team_id
+	     - PIC_auditor
+	     - created_at
+
+
+genba_member : - id
+	 	   - user_id
+		   - genba_id
+	 	   - created_at
+
+penilaian : - id
+		- genba_id
+		- no 1-10
+		- created_at
+
+team : - id
+	 - nama_team
+	 - created_at
+
+team_member : - id
+		  - user_id
+		  - team_id
+
+
+
+
+
+
+
+
+
+
+

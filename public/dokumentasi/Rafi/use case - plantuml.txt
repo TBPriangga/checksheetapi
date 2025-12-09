@@ -1,0 +1,21 @@
+@startuml
+left to right direction
+actor "EHS" as EHS
+actor "PIC" as PIC
+actor "Dept.Head" as Dept
+rectangle web-portal {
+  usecase "Dashboard" as UC1
+  usecase "Login" as UC2
+  usecase "Buat Laporan" as UC3
+  usecase "Penanggulangan" as UC4
+}
+EHS--> UC1
+EHS --> UC2
+EHS --> UC3
+PIC--> UC1
+PIC --> UC2
+PIC --> UC4
+Dept--> UC1
+Dept--> UC2
+
+@enduml

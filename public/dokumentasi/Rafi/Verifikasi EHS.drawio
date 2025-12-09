@@ -1,0 +1,109 @@
+<mxfile host="app.diagrams.net" modified="2024-03-18T04:31:09.824Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0" etag="tU_DI-8CA6kEyRPfd4HX" version="24.0.7" type="device">
+  <diagram name="Page-1" id="ievW4vv8KZM-KH9l4r0Z">
+    <mxGraphModel dx="1123" dy="721" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nlVeCApqq4qnfQAXgAah-1" value="Process Business Verifikasi Laporan Temuan Patrol" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;horizontal=0;horizontalStack=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="140" y="30" width="550" height="920" as="geometry">
+            <mxRectangle x="210" y="20" width="40" height="190" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-2" value="EHS" style="swimlane;html=1;startSize=20;" vertex="1" parent="nlVeCApqq4qnfQAXgAah-1">
+          <mxGeometry x="20" width="530" height="920" as="geometry">
+            <mxRectangle x="20" width="40" height="480" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="nlVeCApqq4qnfQAXgAah-2" source="nlVeCApqq4qnfQAXgAah-4" target="nlVeCApqq4qnfQAXgAah-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-4" value="Login" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" vertex="1" parent="nlVeCApqq4qnfQAXgAah-2">
+          <mxGeometry x="218.75" y="100" width="85" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="nlVeCApqq4qnfQAXgAah-2" source="nlVeCApqq4qnfQAXgAah-6" target="nlVeCApqq4qnfQAXgAah-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-6" value="Membuka halaman Laporan Patrol" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" vertex="1" parent="nlVeCApqq4qnfQAXgAah-2">
+          <mxGeometry x="203.75" y="150" width="115" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="nlVeCApqq4qnfQAXgAah-2" source="nlVeCApqq4qnfQAXgAah-8" target="nlVeCApqq4qnfQAXgAah-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-8" value="Menekan tombol see detail pada jadwal laporan patrol" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" vertex="1" parent="nlVeCApqq4qnfQAXgAah-2">
+          <mxGeometry x="200" y="240" width="122.5" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="nlVeCApqq4qnfQAXgAah-2" source="nlVeCApqq4qnfQAXgAah-10" target="nlVeCApqq4qnfQAXgAah-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-10" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=general;fillColor=#00FF00;strokeColor=#2D7600;fontColor=#ffffff;" vertex="1" parent="nlVeCApqq4qnfQAXgAah-2">
+          <mxGeometry x="246.25" y="50" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-12" value="Menekan tombol see detail pada laporan temuan" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" vertex="1" parent="nlVeCApqq4qnfQAXgAah-2">
+          <mxGeometry x="201.25" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-16" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate;fillColor=#f8cecc;strokeColor=#b85450;gradientColor=#ea6b66;" vertex="1" parent="nlVeCApqq4qnfQAXgAah-2">
+          <mxGeometry x="246.25" y="850" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="nlVeCApqq4qnfQAXgAah-2" source="nlVeCApqq4qnfQAXgAah-13" target="nlVeCApqq4qnfQAXgAah-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="261.25" y="529.9999999999998" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="110" y="780" />
+              <mxPoint x="261" y="780" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="nlVeCApqq4qnfQAXgAah-2" source="nlVeCApqq4qnfQAXgAah-20" target="nlVeCApqq4qnfQAXgAah-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-20" value="Temuan harus memiliki indikator proses lingkaran berwarna hijau" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];rounded=1;dashed=1;dashPattern=5 2 1 2;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;fontSize=12;html=1;whiteSpace=wrap;" vertex="1" parent="nlVeCApqq4qnfQAXgAah-2">
+          <mxGeometry x="351.25" y="330" width="148.75" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="nlVeCApqq4qnfQAXgAah-2" source="nlVeCApqq4qnfQAXgAah-23" target="nlVeCApqq4qnfQAXgAah-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-23" value="Menekan tombol Tolak" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" vertex="1" parent="nlVeCApqq4qnfQAXgAah-2">
+          <mxGeometry x="365.62" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="nlVeCApqq4qnfQAXgAah-2" source="nlVeCApqq4qnfQAXgAah-25" target="nlVeCApqq4qnfQAXgAah-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-25" value="Mengisi form penolakan" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" vertex="1" parent="nlVeCApqq4qnfQAXgAah-2">
+          <mxGeometry x="365.62" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-26" value="Menekan tombol submit" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" vertex="1" parent="nlVeCApqq4qnfQAXgAah-2">
+          <mxGeometry x="365.62" y="700" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="nlVeCApqq4qnfQAXgAah-2" source="nlVeCApqq4qnfQAXgAah-26" target="nlVeCApqq4qnfQAXgAah-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="426" y="780" />
+              <mxPoint x="261" y="780" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-30" value="Verifikasi Laporan?" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;gwType=exclusive;" vertex="1" parent="nlVeCApqq4qnfQAXgAah-2">
+          <mxGeometry x="239.38" y="430" width="43.75" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="nlVeCApqq4qnfQAXgAah-2" source="nlVeCApqq4qnfQAXgAah-12" target="nlVeCApqq4qnfQAXgAah-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="nlVeCApqq4qnfQAXgAah-2" source="nlVeCApqq4qnfQAXgAah-30" target="nlVeCApqq4qnfQAXgAah-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="nlVeCApqq4qnfQAXgAah-2" source="nlVeCApqq4qnfQAXgAah-30" target="nlVeCApqq4qnfQAXgAah-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-13" value="Menekan tombol Verifikasi" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" vertex="1" parent="nlVeCApqq4qnfQAXgAah-2">
+          <mxGeometry x="45" y="580" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-34" value="Verifikasi" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="nlVeCApqq4qnfQAXgAah-2">
+          <mxGeometry x="40" y="500" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nlVeCApqq4qnfQAXgAah-35" value="Tolak" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="579" y="491" width="50" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

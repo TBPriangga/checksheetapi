@@ -1,0 +1,665 @@
+/* ============================================= */
+/* === STYle HALAMAN inspeksi-apar.blade === */
+/* ============================================= */
+
+/* SCAN SECTION */
+.apar-scan-container {
+    margin: 1rem auto;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.apar-scan-input {
+    width: 100%;
+    padding: 0.85rem;
+    margin-bottom: 1rem;
+    border: 1.5px solid #cbd5e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #f8fafc;
+    transition: all 0.2s ease;
+}
+
+.apar-scan-input:focus {
+    outline: none;
+    border-color: #23c6c8;
+    background: white;
+}
+
+.apar-scan-btn {
+    background: linear-gradient(135deg, #23c6c8 100%);
+    color: white;
+    border: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.apar-scan-btn:hover {
+    transform: translateY(-2px);
+}
+
+.apar-preview-container {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.apar-preview {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    display: none;
+}
+
+/* CARD */
+.apar-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 1.5rem auto;
+    max-width: 1200px;
+    border: 1px solid #e2e8f0;
+}
+
+.apar-card-header {
+    background: linear-gradient(135deg, #23c6c8 100%);
+    color: white;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.apar-title {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.apar-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.apar-badge-co2 {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.apar-badge-powder {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.apar-card-body {
+    padding: 1.5rem;
+}
+
+.apar-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4a5568;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.apar-icon {
+    width: 18px;
+    height: 18px;
+    color: #667eea;
+}
+
+/* GAMBAR 1 KOTAK PENUH (TANPA ZOOM) */
+.apar-guide-full {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 1.5rem;
+}
+
+.apar-guide-title {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.apar-guide-img-full {
+    width: 100%;
+    height: auto;
+    max-height: 320px;
+    object-fit: contain;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 2 KOLOM SEJAJAR: GAMBAR + INPUT */
+.apar-grid-sejajar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 992px) {
+    .apar-grid-sejajar {
+        grid-template-columns: 1fr;
+    }
+    .apar-guide-full {
+        margin-bottom: 1rem;
+    }
+}
+
+.apar-col-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.apar-input-group-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+.apar-col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* INPUT & LABEL */
+.apar-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.apar-label {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+}
+
+.apar-required {
+    color: #e53e3e;
+    margin-left: 0.25rem;
+}
+
+.apar-input,
+.apar-form-group select,
+.apar-form-group textarea {
+    padding: 0.65rem 0.75rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    background: #fafafa;
+    transition: all 0.2s ease;
+    text-transform: none !important;
+}
+
+.apar-input:focus,
+.apar-form-group select:focus,
+.apar-form-group textarea:focus {
+    outline: none;
+    border-color: #23c6c8;
+    background: white;
+}
+
+/* PUDARKAN OPTION "PILIH STATUS..." */
+.apar-input option[disabled] {
+    color: #cbd5e0 !important;
+    font-style: italic;
+    opacity: 0.6;
+    background: #f1f5f9;
+}
+
+.apar-input option:first-child {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+/* CO2 HIGHLIGHT */
+.apar-highlight-co2 {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    padding: 1rem;
+    border-radius: 12px;
+    margin: 0.5rem 0;
+}
+
+.apar-highlight-co2 .apar-label {
+    color: #9b2c2c;
+    font-weight: 700;
+}
+
+/* CONTOH PENGISIAN - HURUF NORMAL */
+.apar-help {
+    display: block;
+    font-size: 0.8rem;
+    color: #718096;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+    line-height: 1.4;
+    text-transform: none !important;
+    font-family: inherit;
+}
+
+/* BUTTON */
+.apar-form-actions {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.apar-btn {
+    padding: 0.85rem 2rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 220px;
+}
+
+.apar-btn-primary {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+}
+
+.apar-btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+/* ALERT */
+.apar-alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+.apar-alert-success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.apar-alert-danger {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .apar-card-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .apar-badge {
+        margin-top: 0.5rem;
+    }
+    .apar-card-body {
+        padding: 1rem;
+    }
+}
+
+/* ============================================= */
+/* === STYLE HALAMAN monitoring-apar.blade.php === */
+/* ============================================= */
+
+:root {
+  /* Colors */
+  --moni-primary: #0d6efd;
+  --moni-success: #28a745;
+  --moni-warning: #ffc107;
+  --moni-danger: #dc3545;
+  --moni-bg: #f8f9fa;
+  --moni-border: #dee2e6;
+  --moni-text: #495057;
+  --moni-muted: #6c757d;
+
+  /* Layout */
+  --moni-radius: 0.5rem;
+  --moni-radius-sm: 0.25rem;
+  --moni-gap: 1rem;
+  --moni-pad: 1.25rem;
+  --moni-pad-sm: 1rem;
+}
+
+/* === LAYOUT UTAMA === */
+.aparmoni-container {
+  padding: var(--moni-pad);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* === TYPOGRAPHY === */
+.aparmoni-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+/* === SECTION SPACING === */
+.simple-section {
+  background: transparent;
+  margin-bottom: 1.5rem;
+}
+
+/* === IBOX (CARD WRAPPER) === */
+.ibox {
+  background: white;
+  border: 1px solid var(--moni-border);
+  border-radius: var(--moni-radius);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.ibox-content {
+  padding: var(--moni-pad);
+}
+
+/* === FILTER BUTTONS (DAY / MONTH / YEARS) === */
+
+
+
+
+/* === DATE INPUT === */
+.aparmoni-date {
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 0.375rem;
+  border: 1px solid var(--moni-border);
+  border-radius: var(--moni-radius-sm);
+  background: white;
+}
+
+.input-group-text {
+  font-size: 0.8rem;
+  padding: 0.375rem 0.5rem;
+  background: #f8f9fa;
+  border: 1px solid var(--moni-border);
+  color: var(--moni-text);
+  font-weight: 500;
+}
+
+/* === EXPORT BUTTON === */
+.aparmoni-btn {
+  background: var(--moni-primary);
+  color: white;
+  border: none;
+  border-radius: var(--moni-radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.aparmoni-btn:hover {
+  background: #0b5ed7;
+}
+
+/* === DROPDOWN AREA === */
+.aparmoni-select {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--moni-border);
+  border-radius: var(--moni-radius-sm);
+  background: white;
+  color: var(--moni-text);
+  width: 100%;
+}
+
+.aparmoni-select:focus {
+  outline: none;
+  border-color: var(--moni-primary);
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* === STATUS CARDS === */
+.aparmoni-card {
+  background: white;
+  border: 1px solid var(--moni-border);
+  border-radius: var(--moni-radius);
+  min-height: 85px;
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aparmoni-card .aparmoni-number {
+  font-size: 1.75rem;
+  font-weight: bold;
+  line-height: 1;
+  margin: 0;
+}
+
+.aparmoni-card .aparmoni-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--moni-muted);
+  margin-top: 0.25rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.aparmoni-card small {
+  font-size: 0.65rem;
+  color: var(--moni-muted);
+  margin-top: 0.125rem;
+}
+
+/* WARNA ANGKA */
+.aparmoni-number.text-successs { color: var(--moni-success); }
+.aparmoni-number.text-warning { color: var(--moni-warning); }
+.aparmoni-number.text-danger  { color: var(--moni-danger); }
+
+/* === MAP & PIE CHART === */
+#map-container {
+  height: 450px;
+  background: var(--moni-bg);
+  border: 1px solid var(--moni-border);
+  border-radius: var(--moni-radius);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.aparmoni-pie {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+}
+
+/* === MAP IMAGE === */
+.aparmoni-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.aparmoni-map-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: var(--moni-bg);
+}
+
+/* === TOMBOL APAR (BULAT) === */
+.aparmoni-visit-btn {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 12px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transform: translate(-50%, -50%);
+  border: 2px solid white;
+  z-index: 10;
+}
+
+/* WARNA TOMBOL */
+.aparmoni-visit-btn.bg-success { background: var(--moni-success) !important; }
+.aparmoni-visit-btn.bg-warning { background: var(--moni-warning) !important; color: #212529 !important; }
+.aparmoni-visit-btn.bg-danger  { background: var(--moni-danger) !important; }
+
+/* HOVER TOMBOL */
+.aparmoni-visit-btn:hover {
+  transform: translate(-50%, -50%) scale(1.3);
+  z-index: 20;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+/* === DOT MERAH (EXPIRED / NG / BELUM DICEK) === */
+.status-pulse {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: red;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255,0,0,0.6);
+  pointer-events: none;
+  z-index: 11;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,0,0,0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(255,0,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,0,0,0); }
+}
+
+/* ============================================= */
+/* === RESPONSIVE: TABLET & MOBILE === */
+/* ============================================= */
+
+@media (max-width: 992px) {
+  /* Tombol APAR */
+  .aparmoni-visit-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 11px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.3);
+  }
+  .aparmoni-visit-btn:hover {
+    transform: translate(-50%, -50%) scale(1.25);
+  }
+
+  /* Dot merah */
+  .status-pulse {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Map & Pie */
+  #map-container { height: 400px !important; }
+  .aparmoni-pie { max-width: 240px; }
+
+  /* Card */
+  .aparmoni-card .aparmoni-number { font-size: 1.5rem; }
+}
+
+@media (max-width: 768px) {
+  #map-container { height: 350px !important; }
+  .aparmoni-pie { max-width: 220px; }
+}
+
+@media (max-width: 576px) {
+  /* Filter */
+  .aparmoni-filter-btn {
+    font-size: 0.75rem !important;
+    padding: 0.375rem 0.5rem !important;
+  }
+  .input-group-text,
+  .aparmoni-date,
+  .aparmoni-btn {
+    font-size: 0.75rem !important;
+    padding: 0.375rem !important;
+  }
+
+  /* Card */
+  .aparmoni-card {
+    min-height: 75px;
+    padding: 0.5rem !important;
+  }
+  .aparmoni-card .aparmoni-number {
+    font-size: 1.4rem !important;
+  }
+  .aparmoni-card .aparmoni-label {
+    font-size: 0.65rem !important;
+  }
+  .aparmoni-card small {
+    font-size: 0.6rem !important;
+  }
+
+  /* Tombol APAR */
+  .aparmoni-visit-btn {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 10px !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3) !important;
+    border: 1.5px solid white !important;
+  }
+  .aparmoni-visit-btn:hover {
+    transform: translate(-50%, -50%) scale(1.2) !important;
+  }
+
+  /* Dot merah */
+  .status-pulse {
+    width: 11px !important;
+    height: 11px !important;
+    border: 1.5px solid white !important;
+  }
+
+  /* Map & Pie */
+  #map-container {
+    height: 300px !important;
+    margin-bottom: 1rem;
+  }
+  .aparmoni-pie {
+    max-width: 200px;
+  }
+
+  /* Pastikan pie chart center */
+  .order-1, .order-2 {
+    text-align: center;
+  }
+}

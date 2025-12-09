@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'AJIDMS'),
+    'name' => env('APP_NAME', 'Laravel'),
+    'link_website' => env('LINK_WEBSITE', 'http://10.14.144.20/portal-web/public'),
+    // 'link_website' => env('LINK_WEBSITE', 'http://10.14.179.250:1111'),
 
     /*
     |--------------------------------------------------------------------------
@@ -161,14 +163,12 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Package Service Providers...
          */
-        Maatwebsite\Excel\ExcelServiceProvider::class,
-        Yajra\DataTables\DataTablesServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
-        Spatie\Backup\BackupServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -204,7 +204,6 @@ return [
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
-        'Date' => Illuminate\Support\Facades\Date::class,
         'DB' => Illuminate\Support\Facades\DB::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
@@ -218,9 +217,8 @@ return [
         'Notification' => Illuminate\Support\Facades\Notification::class,
         'Password' => Illuminate\Support\Facades\Password::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,
-        'RateLimiter' => Illuminate\Support\Facades\RateLimiter::class,
         'Redirect' => Illuminate\Support\Facades\Redirect::class,
-        // 'Redis' => Illuminate\Support\Facades\Redis::class,
+        'Redis' => Illuminate\Support\Facades\Redis::class,
         'Request' => Illuminate\Support\Facades\Request::class,
         'Response' => Illuminate\Support\Facades\Response::class,
         'Route' => Illuminate\Support\Facades\Route::class,
@@ -231,10 +229,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
-
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];

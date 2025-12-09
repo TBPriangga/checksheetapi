@@ -1,0 +1,228 @@
+@startuml
+entity "User" as user {
+  *id : int<PK>
+  *name : string
+  *email : string
+  *npk : string
+  *username : string
+  *dept_id : int <FK departement>
+  *position_id : int <FK detail_position>
+  *detail_dept_id : int <FK detail_departement>
+  *email_verified_at : timestamp()
+  *password : string
+  *remember_token : string
+  *created_at : timestamp()
+  *updated_at : timestamp()
+  *deleted_at : timestamp()
+  --
+  *timestamp ()
+}
+
+entity "Model_Has_Role" as model_has_role{
+  *id: int<PK>
+  *user_id: int <FK user>
+  *role_id: int <FK role>
+  --
+  *timestamp ()
+}
+
+
+entity "role" as role{
+  *id: int<PK>
+  *name: string
+  --
+  *timestamp ()
+}
+
+entity "Laporan" as laporan{
+  *id: int<PK>
+  *genba_id : int<FK genba>
+  *patrol_id : int<FK ehs_patrol>
+  *auditor_id : int<FK user>
+  *PIC_id : int<FK user>
+  *dept_ehs_id : int<FK user>
+  *dept_PIC_id : int<FK user>
+  *area_id : int
+  *RANK : enum (A - C)
+  *Kategori : (5R, A-O)
+  *temuan : text
+  *analisis_genba_id: int <FK analisis_genba>
+  *foto_temuan : string
+  *temporary_solution : text
+  *penanggulanagan : string
+  *foto_penanggulanagan : string
+  *progress : double
+  *alasan_penolakan: text
+  *deadline_date: date
+  *verify_submit_at : timestamp()
+  *PIC_submit_at : timestamp()
+  *Acc_Dept.Head_EHS : timestamp()
+  *Acc_Dept.Head_PIC: timestamp()
+  --
+  *created_at : timestamp()
+  *updated_at : timestamp()
+  *deleted_at : timestamp()
+}
+
+entity "Area" as area{
+  *id: int<PK>
+  *name: string
+--
+  *timestamp ()
+}
+
+entity "User_Has_Area" as user_has_area{
+  *id: int<PK>
+  *area_id: int<FK area>
+  *user_id: int<FK user>
+  *role_id: int<FK role>
+--
+  *timestamp ()
+}
+
+entity "Departement" as departement{
+  *id: int<PK>
+  *code: string
+  *name: string
+  *email_depthead: string
+  *email_spv: string
+  *email_members: string
+  --
+  *created_at : timestamp()
+  *updated_at : timestamp()
+  *deleted_at : timestamp()
+}
+
+entity "detail_departement" as detail_departement{
+  *id: int<PK>
+  *departement_id: int<FK departement>
+  *detail_dept_id: int<FK -->
+  *name: string
+  *code: string
+  *email_depthead: string
+  *email_director: string
+  *email_spv: string
+  *email_members: string
+  --
+  *created_at : timestamp()
+  *updated_at : timestamp()
+}
+
+entity "position" as position{
+  *id: int<PK>
+  *position: string
+  *code: string
+  --
+  *created_at : timestamp()
+  *updated_at : timestamp()
+}
+
+entity "analisis_genba" as analisis_genba{
+  *id: int<PK>
+  *man: string
+  *material: string
+  *machine: string
+  *methode: string
+  *what: string
+  *where: string
+  *when: string
+  *why: string
+  *who: string
+  *how: string
+  --
+  *created_at : timestamp()
+  *updated_at : timestamp()
+  *deleted_at : timestamp()
+}
+
+entity "ehs_patrol" as ehs_patrol{
+  *id: int<PK>
+  *area_id: int<FK area>
+  *tanggal_patrol: date
+  --
+  *created_at : timestamp()
+  *updated_at : timestamp()
+  *deleted_at : timestamp()
+}
+
+entity "genba" as genba{
+  *id: int<PK>
+  *pic_auditor_id: int<FK user>
+  *area_id: int<FK area>
+  *team: int<FK team>
+  *tanggal_patrol: date
+  --
+  *created_at : timestamp()
+  *updated_at : timestamp()
+  *deleted_at : timestamp()
+}
+
+entity "genba_detail" as genba_detail{
+  *id: int<PK>
+  *user_id: int <FK user>
+  *genba_id: int <FK genba>
+  *penilaian_id: <FK penilaian>
+  --
+  *created_at : timestamp()
+  *updated_at : timestamp()
+}
+
+entity "penilaian" as penilaian{
+  *id: int<PK>
+  *pertanyaan_1 : int
+  *pertanyaan_2 : int
+  *pertanyaan_3 : int
+  *pertanyaan_4 : int
+  *pertanyaan_5 : int
+  *pertanyaan_6 : int
+  *pertanyaan_7 : int
+  *pertanyaan_8 : int
+  *pertanyaan_9 : int
+  *pertanyaan_10 : int
+  --
+  *created_at : timestamp()
+  *updated_at : timestamp()
+}
+
+entity "team" as team{
+  *id: int<PK>
+  *name: string
+  --
+  *created_at : timestamp()
+  *updated_at : timestamp()
+  *deleted_at : timestamp()
+}
+
+entity "team_member" as team_member{
+  *id: int<PK>
+  *user_id: int <FK user>
+  *team_id: int <FK team>
+  --
+  *created_at : timestamp()
+  *updated_at : timestamp()
+}
+
+team||..|| team_member
+team||..|| genba
+role||..|| user_has_area
+role||..|| model_has_role
+analisis_genba||..|| laporan
+penilaian||..|| genba_detail
+position||..|| user
+detail_departement||..|| user
+departement||..|| detail_departement
+departement||..|| user
+genba||..|| laporan
+genba||..|| genba_detail
+area||..|| genba
+area||..|| ehs_patrol
+area||..|| user_has_area
+user||..|| model_has_role
+user||..|| user_has_area
+user||..|| genba_detail
+user||..|| laporan
+user||..|| genba
+user||..|| team_member
+
+
+@enduml

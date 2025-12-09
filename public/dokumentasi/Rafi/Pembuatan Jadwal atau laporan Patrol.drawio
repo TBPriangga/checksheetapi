@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net" modified="2024-03-18T04:31:13.812Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0" etag="Hgw5gMyzcpXlp68LUBTQ" version="24.0.7" type="device">
+  <diagram name="Page-1" id="VzqyBkjFPnERHnTARfaC">
+    <mxGraphModel dx="786" dy="505" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="yrG17xQDKEg_t11ZVWvR-1" value="Process Business Pembuatan Jadwal/Laporan Patrol" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;horizontal=0;horizontalStack=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="210" y="20" width="230" height="490" as="geometry">
+            <mxRectangle x="210" y="20" width="40" height="190" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yrG17xQDKEg_t11ZVWvR-2" value="EHS" style="swimlane;html=1;startSize=20;" parent="yrG17xQDKEg_t11ZVWvR-1" vertex="1">
+          <mxGeometry x="20" width="210" height="490" as="geometry">
+            <mxRectangle x="20" width="40" height="480" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yrG17xQDKEg_t11ZVWvR-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="yrG17xQDKEg_t11ZVWvR-2" source="yrG17xQDKEg_t11ZVWvR-7" target="yrG17xQDKEg_t11ZVWvR-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yrG17xQDKEg_t11ZVWvR-7" value="Login" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" parent="yrG17xQDKEg_t11ZVWvR-2" vertex="1">
+          <mxGeometry x="62.5" y="100" width="85" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yrG17xQDKEg_t11ZVWvR-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="yrG17xQDKEg_t11ZVWvR-2" source="yrG17xQDKEg_t11ZVWvR-10" target="yrG17xQDKEg_t11ZVWvR-11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yrG17xQDKEg_t11ZVWvR-10" value="Membuka halaman Laporan Patrol" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" parent="yrG17xQDKEg_t11ZVWvR-2" vertex="1">
+          <mxGeometry x="47.5" y="150" width="115" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yrG17xQDKEg_t11ZVWvR-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="yrG17xQDKEg_t11ZVWvR-2" source="yrG17xQDKEg_t11ZVWvR-11" target="yrG17xQDKEg_t11ZVWvR-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yrG17xQDKEg_t11ZVWvR-11" value="Menekan tombol buat laporan patrol" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" parent="yrG17xQDKEg_t11ZVWvR-2" vertex="1">
+          <mxGeometry x="47.5" y="250" width="115" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yrG17xQDKEg_t11ZVWvR-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="yrG17xQDKEg_t11ZVWvR-2" source="yrG17xQDKEg_t11ZVWvR-14" target="yrG17xQDKEg_t11ZVWvR-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yrG17xQDKEg_t11ZVWvR-14" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=general;fillColor=#00FF00;strokeColor=#2D7600;fontColor=#ffffff;" parent="yrG17xQDKEg_t11ZVWvR-2" vertex="1">
+          <mxGeometry x="90" y="50" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yrG17xQDKEg_t11ZVWvR-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="yrG17xQDKEg_t11ZVWvR-2" source="yrG17xQDKEg_t11ZVWvR-16" target="yrG17xQDKEg_t11ZVWvR-33" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="105.05882352941171" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yrG17xQDKEg_t11ZVWvR-16" value="Mengisi formulir laporan patrol (tanggal dan area)" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" parent="yrG17xQDKEg_t11ZVWvR-2" vertex="1">
+          <mxGeometry x="45" y="340" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="yrG17xQDKEg_t11ZVWvR-33" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=end;symbol=terminate;fillColor=#f8cecc;strokeColor=#b85450;gradientColor=#ea6b66;" parent="yrG17xQDKEg_t11ZVWvR-2" vertex="1">
+          <mxGeometry x="90" y="440" width="30" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

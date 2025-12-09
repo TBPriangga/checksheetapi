@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Position extends Model
+class position extends Model
 {
     use HasFactory;
-    protected $table = 'positions';
 
-    protected $fillable = [
-        'code',
-        'position',
-    ];
+    public function user() {
+        return $this->HasMany(user::class, 'position_id');
+    }
 }

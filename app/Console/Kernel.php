@@ -24,12 +24,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-       
-        // $schedule->command('notify:npd_delay')->at("06:00");
-        $schedule->command('notify:npd_delay')->everyThreeMinutes();
-        // $schedule->command('notify:npd_pica_delay')->at("15:34");
-
-        
+        $schedule->command('reminder:email')->dailyAt('12:00');
+        // $schedule->command('reminder:email')->everyTwoMinutes();
+        // $schedule->command('genba:penilaian')->dailyAt('07:00');
+        // $schedule->command('genba:patrol')->dailyAt('12:00');
+        // $schedule->command('command:deadline')->dailyAt('10:46');
     }
 
     /**

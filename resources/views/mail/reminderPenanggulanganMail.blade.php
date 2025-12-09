@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Need Approve</title>
+</head>
+<body style="color: black; font-family: Arial, sans-serif;">
+
+    <p style="font-size: 16px;">Need approved, hasil perbaikan {{ $data->count() }} temuan EHS Patrol pada area <strong>{{ $data[0]['area']->name }}</strong> dan tanggal patroli <strong>{{ $data[0]['laporan_patrol']['tanggal_patrol'] }}</strong> dengan detail berikut :</p>
+    @foreach ($data as $item)
+    <ul>
+        <li>
+            <p style="font-size: 16px;">Temuan : {{ $item['temuan'] }}</p>
+        </li>
+        @if($item['rank'] == 'A') <li> <p> Dengan status rank {{ $item['rank'] }} </p> </li> @endif
+        <li>
+            <p style="font-size: 16px;">Link temuan : {{ config('app.link_website') }}/detail/{{ $item['id'] }}</p>
+        </li>
+    </ul>
+    <br>
+    @endforeach
+
+    <p style="font-size: 16px;">
+         Dibutuhkan approval untuk hasil perbaikan laporan temuan</p>
+    <p style="font-size: 16px;">Link Area temuan : {{ config('app.link_website') }}/patrolEHS/{{ $data[0]['patrol_id'] }}</p>
+<br>
+<br>
+<br>
+    <p style="font-size: 16px;">Terima kasih.</p>
+
+</body>
+</html>
